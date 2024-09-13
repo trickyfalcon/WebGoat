@@ -1,0 +1,43 @@
+spring:
+  datasource1:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://myhost1:5432/dbname
+    username: dbuserxyz
+    password: 345w@118qw9
+  datasource2:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://myhost1:5432/dbname
+    username: ${db_user}
+    password: ${db_cred}
+
+  jpa:
+    properties:
+      hibernate.proc.param_null_passing: true
+      hibernate.format_sql: true
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    default_schema: cru
+    open-in-view: false
+    generate-ddl: false
+
+  kafka:
+    producer:
+      bootstrap-servers: "kafka:9094"
+      properties:
+        topics: pro.internal
+        username: myusername
+        password: stop-guessing-my-password34@879
+        requestTimeout: 20
+        security:
+          protocol: SASL_SSL
+        sasl:
+          mechanism: PLAIN
+          jaas:
+            config: org.apache.kafka.common.security.plain.PlainLoginModule required username="${spring.kafka.producer.properties.username}" password="${spring.kafka.producer.properties.password}";
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+ 
