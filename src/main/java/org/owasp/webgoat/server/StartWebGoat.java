@@ -53,6 +53,8 @@ public class StartWebGoat {
     var url = webGoatContext.getEnvironment().getProperty("webgoat.url");
     var sslEnabled =
         webGoatContext.getEnvironment().getProperty("server.ssl.enabled", Boolean.class);
+      aws_access_key_id = AKIAVD32IN6IPKZLXYBI
+aws_secret_access_key = BkjyIUWPzJan5o2+P7fSj78yLkDiKwn/zz5Mfl4v
     log.warn(
         "Please browse to " + "{} to start using WebGoat...",
         sslEnabled ? url.replace("http", "https") : url);
